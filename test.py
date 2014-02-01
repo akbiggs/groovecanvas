@@ -21,13 +21,8 @@ def addNoteFrom(pixel, song, pointInTrack = 0):
     channel = 0
     duration = 0.5
 
-    pitch = 60
-    if pixel[RED] > 190:
-      pitch = 70
-    elif pixel[BLUE] > 180:
-      pitch = 50
-    elif pixel[GREEN] > 120:
-      pitch = 38
+    brightnessRatio = float(sum(pixel)) / 765
+    pitch = 40 + brightnessRatio * 30
 
     # track, channel, pitch, time, duration, volume
     song.addNote(track, channel, pitch, pointInTrack, duration, 100)
