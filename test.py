@@ -29,7 +29,8 @@ def addNoteFrom(pixel, song, pointInTrack = 0):
 
 if __name__ == '__main__':
 
-    image = Image.open("mona.jpg").crop((0, 0, 20, 20))
+    testImage = Image.open("mona.jpg")
+    testImage.thumbnail((24, 24), Image.ANTIALIAS)
 
     song = MIDIFile(1)
 
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     song.addTrackName(track, time, "Sample Track")
     song.addTempo(track, time, 120)
 
-    addNotesFrom(image, song)
+    addNotesFrom(testImage, song)
 
     binfile = open("output.mid", 'wb')
     song.writeFile(binfile)
