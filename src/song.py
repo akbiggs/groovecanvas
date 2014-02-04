@@ -13,7 +13,7 @@ def addNotesFromColors(colors, song, noteGenerator, track=0):
     time += random.choice(noteDistances)
     generatedNote = noteGenerator(color, song, time, 1, track=track)
 
-    # unpack tuple as arguments for function
+    # "*", the splat operator, unpacks the tuple as arguments for function
     song.addNote(*generatedNote)
 
 def addNotesFromPixelBrightness(image, song):
